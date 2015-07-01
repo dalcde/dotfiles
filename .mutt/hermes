@@ -1,0 +1,19 @@
+set mbox_type=Maildir
+
+set spoolfile="~/.mail/hermes/Inbox"
+set folder="~/.mail/hermes"
+set mask=".*"
+set record="=sent-mail"
+set postponed="=Drafts"
+
+set smtp_url = "smtp://dec41:$my_hermes_pass@smtp.hermes.cam.ac.uk:587"
+set realname = "Dexter Chua"
+set from = "dec41@cam.ac.uk"
+
+unmy_hdr Reply-To:
+unmy_hdr Cc:
+
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+source `mbsync -q hermes > /dev/null 2>&1 & echo /dev/null`

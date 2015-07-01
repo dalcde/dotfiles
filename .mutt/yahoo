@@ -1,0 +1,19 @@
+set mbox_type=Maildir
+
+set spoolfile="~/.mail/yahoo/Inbox"
+set folder="~/.mail/yahoo"
+set mask=".*"
+set record = "=Sent"
+set postponed = "=Draft"
+
+set smtp_url = "smtps://dalcde@yahoo.com.hk:$my_yahoo_pass@smtp.mail.yahoo.com"
+set realname = "Dexter Chua"
+set from = "dalcde@yahoo.com.hk"
+
+unmy_hdr Reply-To:
+unmy_hdr Cc:
+
+set ssl_starttls = yes
+set ssl_force_tls = yes 
+
+source `mbsync -q yahoo > /dev/null 2>&1 & echo /dev/null`

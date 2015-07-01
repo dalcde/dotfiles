@@ -1,0 +1,17 @@
+set imap_user = "srcf"
+set imap_pass = $my_srcf_pass
+
+set folder = "imaps://imap.hermes.cam.ac.uk"
+set spoolfile = "+INBOX"
+set record = "=Sent"
+set postponed = "=Drafts"
+
+set smtp_url = "smtp://dec41:$my_hermes_pass@smtp.hermes.cam.ac.uk:587"
+set realname = "Dexter Chua"
+set from = "dec41@cam.ac.uk"
+
+my_hdr Reply-To: SRCF sysadmins <soc-srcf-admin@lists.cam.ac.uk>
+my_hdr Cc: SRCF sysadmins <soc-srcf-admin@lists.cam.ac.uk>
+
+set ssl_starttls = yes
+set ssl_force_tls = yes
