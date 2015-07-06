@@ -1,4 +1,4 @@
-source "gpg2 -dq $HOME/.mutt-cred.gpg |"
+source $HOME/.mutt-cred
 
 set imap_check_subscribed
 

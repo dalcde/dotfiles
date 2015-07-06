@@ -2,7 +2,7 @@ IMAPAccount hermes
     Host imap.hermes.cam.ac.uk
     User dec41
     SSLType IMAPS
-    PassCmd "gpg2 -dq .mutt-cred.gpg | grep hermes | sed 's/.* = //;s/.\\(.*\\)./\\1/'"
+    PassCmd "grep hermes .mutt-cred | sed 's/.* = //;s/.\\(.*\\)./\\1/'"
     CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 IMAPStore hermes-remote
@@ -23,7 +23,7 @@ IMAPAccount yahoo
     Host imap.mail.yahoo.com
     User dalcde@yahoo.com.hk
     SSLType IMAPS
-    PassCmd "gpg2 -dq .mutt-cred.gpg | grep yahoo | sed 's/.* = //;s/.\\(.*\\)./\\1/'"
+    PassCmd "grep yahoo .mutt-cred | sed 's/.* = //;s/.\\(.*\\)./\\1/'"
     CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 IMAPStore yahoo-remote
