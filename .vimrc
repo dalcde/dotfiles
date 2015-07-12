@@ -33,6 +33,8 @@ let g:Tex_Env_lemma = "\\begin{lemma}\<CR><++>\<CR>\\end{lemma}<++>"
 let g:Tex_Env_defi = "\\begin{defi}[<++>]\<CR><++>\<CR>\\end{defi}<++>"
 let g:Tex_Env_thm = "\\begin{thm}[<++>]\<CR><++>\<CR>\\end{thm}<++>"
 let g:Tex_Env_tabular = "\\begin{tabular}{<++>}\<CR><++>\<CR>\\end{tabular}<++>"
+let g:Tex_Env_pp = "\\begin{pp}{<++>}{<++>}\<CR><++>\<CR>\\end{pp}<++>"
+let g:Tex_Env_enumerater = "\\begin{enumerate}[resume]\<CR>\\item <++>\<CR>\\end{enumerate}<++>"
 
 
 autocmd FileType tex set shiftwidth=2|set softtabstop=2
