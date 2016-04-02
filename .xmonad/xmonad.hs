@@ -49,17 +49,25 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
+
 myLayoutHook = avoidStruts $ maximize $ G.group (simpleTabbed ||| (Column 1)) (TwoPane 0.03 0.5)
 
-main = xmonad =<< xmobar defaultConfig
+myBar = "xmobar"
+myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
+toggleStrutsKey XConfig {XMonad.modMask = modm} = (modm .|. shiftMask, xK_b)
+
+myConfig = defaultConfig
         { modMask  = controlMask
-        , terminal = "xfce4-terminal"
+        , terminal = "st"
         , keys     = myKeys
+        , manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = myLayoutHook
         , handleEventHook = mconcat
             [ docksEventHook
             , handleEventHook defaultConfig ]
         }
+
+main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
 -----------------------------------------------------------------------------
 -- |
