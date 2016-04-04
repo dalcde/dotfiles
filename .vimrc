@@ -54,4 +54,4 @@ set hidden
 
 command Gen !./gen.sh % &
 command Sync !./sync.sh `echo % | cut -f1 -d'.'`* &
-command GenSync !(./gen.sh % >/dev/null 2>&1 && ./sync.sh `echo % | cut -f1 -d'.'`* >/dev/null 2>&1 && notify-send "Sync complete") &
+command GenSync !(./gen.sh % >/dev/null 2>&1 && ./sync.sh `echo % | cut -f1 -d'.'`* >/dev/null 2>&1 && notify-send "Sync complete %") &
