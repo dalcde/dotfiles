@@ -25,6 +25,7 @@ autocmd FileType text set spell spelllang=en_gb,en_us
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_MultipleCompileFormats='pdf'
 let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode -shell-escape $*'
+let g:Tex_ViewRule_pdf='mupdf'
 let Tex_FoldedEnvironments = 'tikzpicture'
 let Tex_FoldedSections = 'chapter,section,%%fakesecftion,subsection,subsubsection,paragraph'
 let Tex_FoldedMisc = 'preamble,<<<'
@@ -40,7 +41,6 @@ let g:Tex_Env_enumerater = "\\begin{enumerate}[resume]\<CR>\\item <++>\<CR>\\end
 autocmd FileType tex set shiftwidth=2|set softtabstop=2
 autocmd FileType tex set spell spelllang=en_gb,en_us
 autocmd FileType tex call Tex_MakeMap("<Leader>ll", ":w <CR> <Plug>Tex_Compile", 'n', '<buffer>')
-autocmd FileType tex call Tex_MakeMap("<Leader>ll", "<ESC> :w <CR> <Plug>Tex_Compile", 'v', '<buffer>')
 autocmd FileType asm set ft=nasm
 
 set wildmenu
@@ -52,6 +52,6 @@ nnoremap Q <nop>
 colorscheme ron
 set hidden
 
-command Gen !./gen.sh % &
-command Sync !./sync.sh `echo % | cut -f1 -d'.'`* &
-command GenSync !(./gen.sh % >/dev/null 2>&1 && ./sync.sh `echo % | cut -f1 -d'.'`* >/dev/null 2>&1 && notify-send "Sync complete %") &
+command Gen !./gen.sh %
+command Sync !./sync.sh `echo % | cut -f1 -d'.'`*
+command GenSync w | !(./gen.sh % >/dev/null 2>&1 && ./sync.sh `echo % | cut -f1 -d'.'`* >/dev/null 2>&1 && notify-send "Sync complete %") &

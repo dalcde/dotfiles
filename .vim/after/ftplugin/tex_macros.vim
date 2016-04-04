@@ -16,5 +16,9 @@ call IMAP('\tiems', '\times', 'tex')
 call IMAP('\maspto', '\mapsto', 'tex')
 call IMAP('\cdot', '\cdot', 'tex')
 
+" autocorrect
+" ===========
+call IMAP('\maspto', '\mapsto', 'tex')
+
 autocmd FileType tex set spell spelllang=en_gb,en_us
 
