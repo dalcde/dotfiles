@@ -31,7 +31,7 @@ IMAPStore yahoo-remote
 
 MaildirStore yahoo-local
     Path ~/.mail/yahoo/
-    Inbox ~/.mail/yahoo/Inbox
+    Inbox ~/.mail/yahoo/Inbox/
 
 Channel yahoo
     Master :yahoo-remote:
