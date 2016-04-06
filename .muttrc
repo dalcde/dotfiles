@@ -70,3 +70,5 @@ color signature default default
 color status green default
 color tilde default default
 color underline default default
+
+macro index,pager '\C/' '<change-folder>Bulk Mail/<change-dir>'
