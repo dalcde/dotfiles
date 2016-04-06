@@ -22,23 +22,23 @@ moveGroup l0 (Just s) = if null (W.up s) && null (W.down s)
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
-    [ ((modm .|. mod1Mask , xK_l     ), spawn "xscreensaver-command --lock")
-    , ((modm .|. shiftMask, xK_t     ), spawn $ XMonad.terminal conf)
-    , ((modm              , xK_p     ), spawn "XMODIFIERS=\"\" interrobang")
-    , ((modm .|. shiftMask, xK_c     ), kill)
-    , ((modm,               xK_space ), sendMessage NextLayout)
-    , ((modm .|. shiftMask, xK_space ), withFocused (sendMessage . maximizeRestore))
+    [ ((modm .|. mod1Mask , xK_l          ), spawn "xscreensaver-command --lock")
+    , ((modm              , xK_semicolon  ), spawn $ XMonad.terminal conf)
+    , ((modm              , xK_apostrophe ), spawn "XMODIFIERS=\"\" interrobang")
+    , ((modm .|. shiftMask, xK_c          ), kill)
+    , ((modm,               xK_space      ), sendMessage NextLayout)
+    , ((modm .|. shiftMask, xK_space      ), withFocused (sendMessage . maximizeRestore))
  
-    , ((modm .|. shiftMask, xK_Return), sendMessage $ G.Modify moveGroup)
-    , ((modm              , xK_Return), sendMessage $ G.Modify G.focusGroupUp)
+    , ((modm .|. shiftMask, xK_Return     ), sendMessage $ G.Modify moveGroup)
+    , ((modm              , xK_Return     ), sendMessage $ G.Modify G.focusGroupUp)
  
-    , ((modm .|. mod1Mask , xK_j     ), swapDown)
-    , ((modm .|. mod1Mask , xK_k     ), swapUp)
-    , ((modm .|. shiftMask, xK_j     ), focusDown)
-    , ((modm .|. shiftMask, xK_k     ), focusUp)
+    , ((modm .|. mod1Mask , xK_j          ), swapDown)
+    , ((modm .|. mod1Mask , xK_k          ), swapUp)
+    , ((modm .|. shiftMask, xK_j          ), focusDown)
+    , ((modm .|. shiftMask, xK_k          ), focusUp)
 
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
-    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm .|. shiftMask, xK_q          ), io (exitWith ExitSuccess))
+    , ((modm              , xK_q          ), spawn "xmonad --recompile; xmonad --restart")
     ]
     ++
     --
