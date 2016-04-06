@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# 50% - 6.8 hours left
+r=`upower -i /org/freedesktop/UPower/devices/battery_BAT0` 
+p=`echo $r | sed 's/.*percentage: *\([0-9]*%\).*/\1/'`
+t=`echo $r | sed 's/.*time to empty: *\([^ ]* [^ ]*\).*/\1/'`
+
+echo $p - $t left
