@@ -15,6 +15,7 @@ alias irc='mosh srcf -- tmux attach-session -t irssi'
 alias matlab='ssh ds -Y -t matlab'
 alias mount='sudo mount'
 alias umount='sudo umount'
+alias :q='exit'
 
 echo -en "\e]P0000000" # Black
 echo -en "\e]P1CC0000" # Red
@@ -44,3 +45,10 @@ fi
 if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
+
+autoload -U compinit
+compinit
+
+#export GTK_IM_MODULE=ibus
+#export XMODIFIERS=@im=ibus
+#export QT_IM_MODULE=ibus
