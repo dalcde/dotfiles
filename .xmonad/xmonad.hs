@@ -36,8 +36,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. mod1Mask , xK_k          ), swapUp)
     , ((modm .|. shiftMask, xK_j          ), focusDown)
     , ((modm .|. shiftMask, xK_k          ), focusUp)
+    , ((modm .|. shiftMask, xK_o          ), withFocused $ windows . W.sink)
 
     , ((modm .|. shiftMask, xK_q          ), io (exitWith ExitSuccess))
+    , ((0                 , xK_Print      ), spawn "gnome-screenshot")
     , ((modm              , xK_q          ), spawn "xmonad --recompile; xmonad --restart")
     ]
     ++
@@ -53,7 +55,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 myLayoutHook = avoidStruts $ maximize $ G.group (simpleTabbed ||| (Column 1)) (TwoPane 0.03 0.5)
 
 myBar = "xmobar"
-myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
+myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"
+                , ppLayout = const "" }
 toggleStrutsKey XConfig {XMonad.modMask = modm} = (modm .|. shiftMask, xK_b)
 
 myConfig = defaultConfig
