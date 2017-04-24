@@ -34,12 +34,17 @@ fi
 exec 2> ~/.xsession-errors
 setxkbmap -option ctrl:nocaps
 
-# exec cinnamon-session
+#exec cinnamon-session
 eval $(gnome-keyring-daemon -s)
 export GNOME_KEYRING_SOCKET
 export GNOME_KEYRING_PID
 
+numlockx &
 owncloud &
 xset r rate 400 30
 xscreensaver -no-splash &
+export GTK_IM_MODULE='uim'
+export QT_IM_MODULE='uim'
+uim-xim &
+export XMODIFIERS='@im=uim'
 exec xmonad
